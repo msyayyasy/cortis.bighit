@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Made by.COER</title>
+    <!-- Bootstrap css start -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap css end -->
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: #96B695;
+        background-image: 
+          radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 40%),
+          radial-gradient(circle at 90% 80%, rgba(11, 19, 17, 0.1) 0%, transparent 40%);
+        background-attachment: fixed;
+        min-height: 100vh;
+        color: #222;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Typography */
+      h1, h2, h3, h4, h5, h6, .card-title, .fw-semibold {
+        font-weight: 600 !important;
+        letter-spacing: -0.03em;
+        color: #111;
+      }
+
+      p, .card-text, .text-muted {
+        font-weight: 300 !important;
+        line-height: 1.7 !important;
+        color: #555 !important;
+        letter-spacing: 0.01em;
+      }
+
+      /* Navbar */
+      .navbar {
+        background-color: #0B1311 !important;
+        box-shadow: 0 8px 32px rgba(11, 19, 17, 0.4) !important;
+        border: 1px solid rgba(150, 182, 149, 0.1);
+      }
+      .navbar-brand {
+        font-weight: 800 !important;
+        letter-spacing: 0.15em !important;
+        color: #fff !important;
+      }
+      .nav-link {
+        color: #cbd5d1 !important;
+        font-weight: 500 !important;
+        transition: all 0.3s ease;
+      }
+      .nav-link:hover, .nav-link.active {
+        color: #96B695 !important;
+        transform: translateY(-1px);
+      }
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #0B1311 !important;
+        border-top-left-radius: 2rem;
+        border-top-right-radius: 2rem;
+        box-shadow: 0 -10px 40px rgba(11, 19, 17, 0.3);
+      }
+      footer p {
+        color: #cbd5d1 !important;
+      }
+
+      /* Cards */
+      .custom-card {
+        border: 1px solid rgba(11, 19, 17, 0.08);
+        border-radius: 1.25rem;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        box-shadow: 0 8px 24px rgba(11, 19, 17, 0.04) !important;
+        overflow: hidden;
+      }
+      .custom-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(11, 19, 17, 0.15) !important;
+      }
+      .card-body {
+        padding: 2.25rem !important; /* More whitespace */
+      }
+      
+      /* Images */
+      .card-img-top {
+        height: 280px;
+        object-fit: cover;
+        border-top-left-radius: 1.25rem;
+        border-top-right-radius: 1.25rem;
+        transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.8s ease;
+        filter: brightness(0.96) contrast(1.02);
+      }
+      .custom-card:hover .card-img-top {
+        transform: scale(1.05);
+        filter: brightness(1) contrast(1);
+      }
+
+      /* Carousel */
+      .carousel {
+        border-radius: 1.25rem;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+      }
+      .carousel-item img {
+        height: 420px;
+        object-fit: cover;
+        transition: transform 8s ease-out;
+      }
+      .carousel-item.active img {
+        transform: scale(1.04);
+      }
+
+      /* Input Group */
+      .custom-input-group {
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+      }
+      .custom-input-group .input-group-text,
+      .custom-input-group .form-control {
+        background-color: #fbfbfb;
+        border: 1px solid #eaeaea;
+        transition: all 0.3s ease;
+      }
+      .custom-input-group .input-group-text {
+        border-right: none;
+        color: #999;
+      }
+      .custom-input-group .form-control {
+        border-left: none;
+      }
+      .custom-input-group .form-control:focus {
+        box-shadow: none;
+      }
+      .custom-input-group:focus-within {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      }
+      .custom-input-group:focus-within .input-group-text,
+      .custom-input-group:focus-within .form-control {
+        background-color: #fff;
+        border-color: #ddd;
+      }
+
+      /* Buttons & Badges */
+      .btn-dark {
+        background-color: #0B1311;
+        border-color: #0B1311;
+        letter-spacing: 0.02em;
+        transition: all 0.3s ease;
+      }
+      .btn-dark:hover {
+        background-color: #96B695;
+        border-color: #96B695;
+        color: #0B1311;
+        transform: translateY(-1px);
+        box-shadow: 0 8px 20px rgba(150, 182, 149, 0.4);
+      }
+      .badge {
+        font-weight: 500 !important;
+        letter-spacing: 0.02em;
+        color: #0B1311 !important;
+        border: 1px solid rgba(150, 182, 149, 0.5) !important;
+        background-color: rgba(150, 182, 149, 0.2) !important;
+      }
+
+      /* Iframe */
+      iframe.rounded {
+        border-radius: 1rem !important;
+      }
+
+      /* Scroll Reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        visibility: hidden;
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+      }
+
+      /* Dynamic Navbar */
+      .navbar {
+        transition: all 0.4s ease !important;
+        position: sticky;
+        top: 20px;
+        z-index: 1000;
+      }
+      .navbar.scrolled {
+        background-color: rgba(11, 19, 17, 0.9) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3) !important;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+      }
+
+      /* Search Feedback */
+      .no-results {
+        display: none;
+        text-align: center;
+        padding: 3rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 1.25rem;
+        border: 2px dashed rgba(11, 19, 17, 0.1);
+        color: #fff;
+      }
+
+      /* Form Validation Styles */
+      .form-control.is-invalid {
+        border-color: #ff4d4d !important;
+        background-image: none !important;
+      }
+      .invalid-feedback {
+        color: #ff4d4d;
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+        padding-left: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container py-5">
+      <!-- navbar start -->
+      <nav
+        class="navbar navbar-expand-lg rounded-pill shadow-sm mb-5 px-4 py-3"
+        id="mainNavbar"
+      >
+        <div class="container-fluid p-0">
+          <a class="navbar-brand fw-semibold m-0" href="#">CORTIS</a>
+          <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarSupportedContent"
+          >
+            <ul class="navbar-nav mb-2 mb-lg-0 gap-3">
+              <li class="nav-item">
+                <a class="nav-link active fw-medium" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-medium" href="#">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-medium" href="#">Communities</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- navbar end -->
+
+      <div class="row justify-content-center g-5">
+        <!-- left column -->
+        <div class="col-lg-5 col-md-6">
+          <!-- card start -->
+          <div class="card custom-card shadow-sm h-100 reveal">
+            <img src="assets/cortis.png" class="card-img-top" alt="arirang" />
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="card-title fw-semibold mb-3">ABOUT</h5>
+              <p class="card-text text-muted mb-4" style="line-height: 1.6">
+                CORTIS (MARTIN, JAMES, JUHOON, SEONGHYEON, and KEONHO) is the
+                first boy band in 6 years to debut under BIGHIT MUSIC, the
+                powerhouse label behind iconic global groups like BTS and
+                TOMORROW X TOGETHER. The name CORTIS is an unconventional mix of
+                six letters drawn from the phrase “COLOR OUTSIDE THE LINES,”
+                reflecting their determination to think beyond the boundaries
+                defined by the world.
+              </p>
+              <div class="mt-auto">
+                <span
+                  class="badge bg-light text-secondary rounded-pill px-3 py-2 fw-normal border"
+                  >Officially Debuted on August 18, 2025.</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- card end -->
+        </div>
+
+        <!-- right column -->
+        <div class="col-lg-7 col-md-6 d-flex flex-column">
+          <!-- carousel start -->
+          <div
+            id="carouselExampleFade"
+            class="carousel slide carousel-fade shadow-sm mb-4 reveal"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="assets/carousel/fashion.png"
+                  class="d-block w-100"
+                  alt="fashion"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="assets/carousel/bighit.png"
+                  class="d-block w-100"
+                  alt="bighit"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="assets/carousel/redred.png"
+                  class="d-block w-100"
+                  alt="redred"
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleFade"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleFade"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <!-- carousel end -->
+
+          <!-- input group start -->
+          <div class="card custom-card shadow-sm p-4 mt-auto reveal">
+            <h6 class="mb-3 fw-semibold">Members Account</h6>
+            <form id="searchForm" novalidate>
+              <div
+                class="input-group custom-input-group border rounded-pill overflow-hidden"
+                id="searchContainer"
+              >
+                <span class="input-group-text px-3 text-muted" id="visible-addon"
+                  >@</span
+                >
+                <input
+                  type="text"
+                  class="form-control py-2 shadow-none"
+                  placeholder="Username"
+                  aria-label="Username"
+                  aria-describedby="visible-addon"
+                  id="memberSearch"
+                  autocomplete="off"
+                />
+                <button class="btn btn-dark px-4 fw-medium" type="submit">
+                  Search
+                </button>
+              </div>
+              <div class="invalid-feedback" id="searchFeedback">
+                Please enter a valid member name.
+              </div>
+            </form>
+          </div>
+          <!-- input group end -->
+        </div>
+      </div>
+
+      <!-- tugas bootstrap -->
+      <!-- ratio start -->
+      <div class="row mt-5 justify-content-center reveal">
+        <div class="col-lg-10">
+          <h5 class="fw-semibold mb-3">Latest Official Release:</h5>
+          <div class="card custom-card shadow-sm p-3 p-md-4">
+            <div class="ratio ratio-16x9">
+              <iframe
+                class="rounded"
+                src="https://www.youtube.com/embed/U6BDbXIah-Y"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ratio end -->
+
+      <!-- member cards start -->
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center g-4 mt-4" id="memberList">
+        <div class="col member-card reveal">
+          <div class="card custom-card shadow-sm h-100">
+            <img src="assets/martin.png" class="card-img-top" alt="martin">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="card-title fw-semibold mb-3">MARTIN</h5>
+              <p class="card-text text-muted" style="line-height: 1.6; font-size: 0.95rem;">
+                Martin (마틴), also known as Martin Edwards and Park Woo-joo, was born on March 20, 2008. He is the leader of CORTIS and holds Korean-Canadian nationality. He stands approximately 190.5 cm tall, has blood type O, and his MBTI is INFP/ENFP. His representative color is red and his emoji is a dog. He was born in Seoul, South Korea, and has lived in Canada.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col member-card reveal">
+          <div class="card custom-card shadow-sm h-100">
+            <img src="assets/james.png" class="card-img-top" alt="james">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="card-title fw-semibold mb-3">JAMES</h5>
+              <p class="card-text text-muted" style="line-height: 1.6; font-size: 0.95rem;">
+                James (제임스), whose full name is Chao Yufan or James Chao, was born on October 14, 2005. He is the oldest member of CORTIS and has Thai-Taiwanese nationality. His height is around 176–178 cm, his blood type is A, and his MBTI is INTP. His representative color is green and his emoji is an eagle. He is multilingual and has experience as a trainee prior to debut.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col member-card reveal">
+          <div class="card custom-card shadow-sm h-100">
+            <img src="assets/juhoon.png" class="card-img-top" alt="juhoon">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="card-title fw-semibold mb-3">JUHOON</h5>
+              <p class="card-text text-muted" style="line-height: 1.6; font-size: 0.95rem;">
+                Juhoon (주훈), born Kim Ju-hoon on January 3, 2008, is a Korean member of CORTIS. He is approximately 175–176 cm tall, has blood type O, and his MBTI is ISFP. His representative color is blue and his emoji is a turtle. He is known for being a former child model and can speak both Korean and English.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col member-card reveal">
+          <div class="card custom-card shadow-sm h-100">
+            <img src="assets/sean.png" class="card-img-top" alt="seonghyeon">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="card-title fw-semibold mb-3">SEONGHYEON</h5>
+              <p class="card-text text-muted" style="line-height: 1.6; font-size: 0.95rem;">
+                Seonghyeon (성현), whose full name is Eom Seong-hyeon (Sean Eom), was born on January 13, 2009. He is Korean, stands around 175 cm tall, and has blood type A. His MBTI is INTP, his representative color is black, and his emoji is a fox. He is known for his long trainee period and involvement in music production.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col member-card reveal">
+          <div class="card custom-card shadow-sm h-100">
+            <img src="assets/keonho.png" class="card-img-top" alt="keonho">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="card-title fw-semibold mb-3">KEONHO</h5>
+              <p class="card-text text-muted" style="line-height: 1.6; font-size: 0.95rem;">
+                Keonho (건호), also known as An Keon-ho, was born on February 14, 2009. He is the youngest member (maknae) of CORTIS and is Korean. He is approximately 178 cm tall, has blood type O, and his MBTI is INTP. His representative color is yellow and his emoji is a puppy. Before becoming a trainee, he was known as a swimming athlete.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- member cards end -->
+
+      <!-- no results start -->
+      <div id="noResults" class="no-results mt-4">
+        <h5 class="mb-2">No members found</h5>
+        <p class="mb-0 text-muted">Try searching for a different name...</p>
+      </div>
+      <!-- no results end -->
+    </div>
+
+    <!-- footer start -->
+    <footer class="py-4 mt-5 text-center">
+      <p class="mb-0 text-muted fw-medium" style="font-size: 0.9rem;">
+        &copy; 2026 aynasvn. All Rights Reserved.
+      </p>
+    </footer>
+    <!-- footer end -->
+
+    <!-- script bootstrap start -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <!-- script bootstrap end -->
+
+    <!-- JS -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 1. Dynamic Navbar
+        const navbar = document.getElementById("mainNavbar");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+
+        // 2. Scroll Reveal Animation
+        const revealElements = document.querySelectorAll(".reveal");
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                // Optional: unobserve after reveal
+                // revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        revealElements.forEach((el) => revealObserver.observe(el));
+
+        // 3. Real-time Member Filter
+        const searchInput = document.getElementById("memberSearch");
+        const memberCards = document.querySelectorAll(".member-card");
+        const noResults = document.getElementById("noResults");
+        const searchForm = document.getElementById("searchForm");
+        const searchFeedback = document.getElementById("searchFeedback");
+
+        const filterMembers = () => {
+          const query = searchInput.value.toLowerCase().trim();
+          let hasResults = false;
+
+          memberCards.forEach((card) => {
+            const name = card.querySelector(".card-title").textContent.toLowerCase();
+            const info = card.querySelector(".card-text").textContent.toLowerCase();
+
+            if (name.includes(query) || info.includes(query)) {
+              card.style.display = "block";
+              hasResults = true;
+              // Re-trigger animation if hidden before
+              if (query !== "") card.classList.add("active");
+            } else {
+              card.style.display = "none";
+            }
+          });
+
+          noResults.style.display = hasResults ? "none" : "block";
+        };
+
+        searchInput.addEventListener("input", filterMembers);
+
+        // 4. Form Validation
+        searchForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const query = searchInput.value.trim();
+
+          if (query.length === 0) {
+            searchInput.classList.add("is-invalid");
+            searchFeedback.style.display = "block";
+            searchFeedback.textContent = "Please enter a name to search.";
+            
+            // Shake effect
+            searchInput.parentElement.style.animation = "shake 0.5s ease";
+            setTimeout(() => {
+              searchInput.parentElement.style.animation = "";
+            }, 500);
+          } else {
+            searchInput.classList.remove("is-invalid");
+            searchFeedback.style.display = "none";
+            // Filter is already real-time, but we can add a visual cue
+            console.log("Searching for:", query);
+          }
+        });
+
+        // Remove error on input
+        searchInput.addEventListener("focus", () => {
+          searchInput.classList.remove("is-invalid");
+          searchFeedback.style.display = "none";
+        });
+      });
+
+      // Keyframes for shake animation
+      const style = document.createElement('style');
+      style.innerHTML = `
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          25% { transform: translateX(-5px); }
+          75% { transform: translateX(5px); }
+        }
+      `;
+      document.head.appendChild(style);
+    </script>
+  </body>
+</html>
